@@ -64,3 +64,9 @@ void Secretary::printInfo() const
     }
     std::cout << std::endl;
 }
+
+Secretary* Secretary::clone() const
+{
+    Secretary* newObj = new Secretary(*this);
+    return newObj;
+}

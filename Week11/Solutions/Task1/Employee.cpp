@@ -13,24 +13,20 @@ Employee::Employee(const char* name, const char* EGN, const char* departmentName
 {
     setName(name);
     setEGN(EGN);
-    setDepartmentName(departmentName);
+    setDepartmentName(departmentName);;
 }
 
 Employee::Employee(const Employee& other)
     : name(nullptr), EGN(nullptr), departmentName(nullptr), salary(other.salary) 
 {
-    setName(other.name);
-    setEGN(other.EGN);
-    setDepartmentName(other.departmentName);
+    copyFrom(other);
 }
 
 Employee& Employee::operator=(const Employee& other) 
 {
     if (this != &other) 
     {
-        setName(other.name);
-        setEGN(other.EGN);
-        setDepartmentName(other.departmentName);
+        copyFrom(other);
         salary = other.salary;
     }
     return *this;
@@ -38,9 +34,7 @@ Employee& Employee::operator=(const Employee& other)
 
 Employee::~Employee()
 {
-    delete[] name;
-    delete[] EGN;
-    delete[] departmentName;
+    free();
 }
 
 void Employee::setName(const char* newName) 
@@ -93,4 +87,18 @@ double Employee::getSalary() const
 void Employee::printInfo() const 
 {
     std::cout << "Name: " << name << "\nEGN: " << EGN << "\nDepartment: " << departmentName << "\nSalary: " << salary<<std::endl;
+}
+
+void Employee::copyFrom(const Employee& other)
+{
+    setName(other.name);
+    setEGN(other.EGN);
+    setDepartmentName(other.departmentName);
+}
+
+void Employee::free()
+{
+    delete[] name;
+    delete[] EGN;
+    delete[] departmentName;
 }

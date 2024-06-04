@@ -1,9 +1,11 @@
 #include "Director.h"
 
-void Director::copyEmployees(const std::unique_ptr<Employee>* source, int count) {
+void Director::copyEmployees(const std::unique_ptr<Employee>* source, int count) 
+{
     employees = std::make_unique<std::unique_ptr<Employee>[]>(count);
-    for (int i = 0; i < count; i++) {
-        employees[i] = std::make_unique<Employee>(*source[i]);
+    for (int i = 0; i < count; i++) 
+    {
+        employees[i] = std::unique_ptr<Employee>(source[i]->clone());
     }
 }
 
@@ -70,4 +72,10 @@ void Director::printInfo() const
     {
         employees[i]->printInfo();
     }
+}
+
+Director* Director::clone() const  
+{ 
+    Director* newObj =  new Director(*this);
+    return newObj;
 }

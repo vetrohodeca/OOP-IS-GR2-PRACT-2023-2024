@@ -14,5 +14,6 @@ public:
     ~Secretary();
 
     void printInfo() const;
+    Secretary* clone() const override;
 };
  

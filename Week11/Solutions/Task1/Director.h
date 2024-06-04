@@ -20,4 +20,5 @@ public:
     void addEmployee(std::unique_ptr<Employee> employee);
     double calculateTotalSalary() const;
     void printInfo() const;
+    Director* clone() const override;
 };

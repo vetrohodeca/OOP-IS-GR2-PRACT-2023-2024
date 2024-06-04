@@ -18,6 +18,7 @@ public:
     ~HeadOfDepartment();
     void setManagedDepartment(const char* newManagedDepartment);
     void addEmployee(std::unique_ptr<Employee> employee);
-    void printInfo() const; 
-    double getSalary() const;
+    void printInfo() const override;
+    double getSalary() const ;
+    HeadOfDepartment* clone() const override;
 };

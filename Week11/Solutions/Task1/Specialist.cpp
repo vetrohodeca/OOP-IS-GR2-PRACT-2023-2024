@@ -51,7 +51,13 @@ void Specialist::printInfo() const
     std::cout << "Specialty: " << specialty;
 }
 
-double Specialist::getSalary()
+double Specialist::getSalary() const
 {
     return salary;
+}
+
+Employee* Specialist::clone() const 
+{
+    Employee* newObj = new Specialist(*this); 
+    return newObj;
 }

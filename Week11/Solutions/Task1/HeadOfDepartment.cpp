@@ -90,6 +90,12 @@ void HeadOfDepartment::copyEmployees(const std::unique_ptr<Employee>* source, in
 	departmentEmployees = std::make_unique<std::unique_ptr<Employee>[]>(count);
 	for (int i = 0; i < count; i++) 
 	{
-		departmentEmployees[i] = std::make_unique<Employee>(*source[i]);
+		departmentEmployees[i] = std::unique_ptr<Employee>(source[i]->clone());
 	}
+}
+
+HeadOfDepartment* HeadOfDepartment::clone() const 
+{
+	HeadOfDepartment* newObj = new HeadOfDepartment(*this);
+	return newObj;
 }

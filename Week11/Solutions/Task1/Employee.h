@@ -9,6 +9,9 @@ private:
     char* EGN;
     char* departmentName;
 
+    void copyFrom(const Employee& other);
+    void free();
+
 public:
     Employee();
     Employee(const char* name, const char* EGN, const char* departmentName, double salary);
@@ -21,7 +24,7 @@ public:
     void setDepartmentName(const char* newDepartmentName);
     virtual double getSalary() const;
     virtual void printInfo() const;
-
+    virtual Employee* clone() const = 0;
 protected:
     double salary;
 };

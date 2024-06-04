@@ -13,6 +13,7 @@ public:
     ~Specialist();
 
     void setSpecialty(const char* newSpecialty);
-    double getSalary();
-    void printInfo() const;
+    double getSalary() const;
+    void printInfo() const override;
+    Employee* clone() const;
 };
