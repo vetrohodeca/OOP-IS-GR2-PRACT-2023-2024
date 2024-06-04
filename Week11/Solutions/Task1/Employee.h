@@ -14,7 +14,7 @@ public:
     Employee(const char* name, const char* EGN, const char* departmentName, double salary);
     Employee(const Employee& other);
     Employee& operator=(const Employee& other);
-    ~Employee();
+    virtual ~Employee();
 
     void setName(const char* newName);
     void setEGN(const char* newEGN);
